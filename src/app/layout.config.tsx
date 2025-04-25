@@ -9,7 +9,7 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
  */
 export const baseOptions: BaseLayoutProps = {
   nav: {
-    title: <p className="font-serif italic text-2xl">Flux</p>,
+    title: <p className="font-serif italic text-2xl">Flux</p>
   },
   links: [
     {

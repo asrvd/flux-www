@@ -1,4 +1,4 @@
-import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 
 /**
  * Shared layout configurations
@@ -9,13 +9,13 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
  */
 export const baseOptions: BaseLayoutProps = {
   nav: {
-    title: (
-      <p className='font-serif italic text-2xl'>
-        Flux
-      </p>
-    ),
+    title: <p className="font-serif italic text-2xl">Flux</p>,
   },
   links: [
+    {
+      label: "Documentation",
+      url: "/docs",
+      text: "Documentation",
+    },
   ],
-  
 };

@@ -1,0 +1,32 @@
+---
+title: Usage
+description: Using Flux with Cursor
+---
+We would suggest you add the [`llms.txt`](https://cookbook_ao.g8way.io/llms-full.txt) for AO docs in cursor first and use it as a context before you start using the MCP server. If you don't know how to do it, checkoout [this documentation](https://docs.cursor.com/context/@-symbols/@-docs) on how to add docs to cursor.
+
+The more context you give to cursor, the more acurate the responses will be.
+
+Now add these custom rules in your Cursor project to make sure Cursor doesn't hallucinate or give wrong responses. You can add these rules in the **Settings** > **Cursor Settings** > **Rules** > **Add new rule**.
+
+```txt
+For adding json capabilities ONLY IF NEEDED, you need to add a line "local json = require("json")" on top of file. BUT DONT USE IT UNLESS NEEDED. SIMPLE THINGS CAN BE DONE USING AO PROCESS STATE
+
+Always use Send instead of msg.reply
+
+Always make sure a handler is sending out a response/reply (using Send) and send it as data as well instaed of just returning using tags
+
+Never add any tags by yourself, always add tags when needed or instructed by user, also {"Action":"Eval"} tag is for running lua in an ao process and {"Action" : "action_name"} is for running a handler
+
+Never add the "Type" tag to anything, thats reserved for internal ao specifications
+
+Always use Handler.utils whever possible when creating a handler, for example --
+    Handlers.add(
+        "pingpong",
+        Handlers.utils.hasMatchingTag("Action", "Ping"),
+        function (msg) 
+            Handlers.utils.reply("Pong")(msg) -- or use Send() here
+        end
+    )
+```
+
+Now you can start using the Flux MCP server in Cursor Agents.

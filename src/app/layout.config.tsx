@@ -17,5 +17,12 @@ export const baseOptions: BaseLayoutProps = {
       url: "/docs",
       text: "Documentation",
     },
+    {
+      label: "GitHub",
+      url: "https://github.com/flux-docs",
+      text: "GitHub",
+      type: "icon",
+      icon: "github",
+    },
   ],
 };

@@ -22,7 +22,14 @@ export const baseOptions: BaseLayoutProps = {
       url: "https://github.com/flux-docs",
       text: "GitHub",
       type: "icon",
-      icon: "github",
+      icon: "Github",
+    },
+    {
+      label: "X (Twitter)",
+      url: "https://x.com/flux_ao",
+      text: "X (Twitter)",
+      type: "icon",
+      icon: "X / Twitter",
     },
   ],
 };

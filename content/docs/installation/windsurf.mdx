@@ -1,0 +1,38 @@
+---
+title: Windsurf Setup
+description: Installing and setting up Flux in Windsurf
+---
+### Local Setup
+For users who want everything to be present locally, no remote servers involved
+    - Make sure you have latest stable version of NODE.js installed - [Node.js download](https://nodejs.org/en/download/)
+    - Copy the content of the file [local/index.js](https://github.com/asrvd/flux/blob/main/src/local/index.js) to your local machine in any folder and copy the absolute path
+    - Open Winsurf and go to **Settings** > **Windsurf Settings** > **Cascade** > Click on **Add Server** under MCP section > Click on **Add Custom Server**
+    - Paste this code in the file 
+        ```json
+        {
+            "mcpServers": {
+                "flux": {
+                    "command": "node",
+                    "args": ["/path/to/your/local/index.js"],
+                    "disabled": false
+                }
+            }
+        }
+        ```
+    - if you did everything correctly you will be able to see the flux MCP loaded with all the tools, and its ready to be used in Windsurf!
+        ![Flux MCP loaded in Windsurf](/windsurf-mcp-added.png)
+
+### Remote Setup
+For users who want to use Flux without installing anything locally
+    - Open Winsurf and go to **Settings** > **Windsurf Settings** > **Cascade** > Click on **Add Server** under MCP section > Click on **Add Custom Server**
+    - Paste this code in the file 
+        ```json
+        "mcpServers": {
+            "flux": {
+                "serverUrl": "https://flux-2esw.onrender.com/sse",
+                "disabled": false
+            }
+        }
+        ```
+    - if you did everything correctly you will be able to see the flux MCP loaded with all the tools, and its ready to be used in Windsurf!
+        ![Flux MCP loaded in Windsurf](/windsurf-mcp-added.png)

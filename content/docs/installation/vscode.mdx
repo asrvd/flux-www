@@ -1,0 +1,76 @@
+---
+title: VSCode Setup
+description: Installing and setting up Flux in VSCode
+---
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+
+<Callout title="Please note">
+  MCP support in VSCode is still in preview and we don't recommend using flux
+  with VSCode till it's stable. You can check out more details about it
+  [here](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+</Callout>
+
+### Local Setup
+For users who want everything to be present locally, no remote servers involved
+    - Make sure you have latest stable version of NODE.js installed - [Node.js download](https://nodejs.org/en/download/)
+    - Copy the content of the file [local/index.js](https://github.com/asrvd/flux/blob/main/src/local/index.js) to your local machine in any folder and copy the absolute path
+    - Open VSCode and create a **settings.json** file in the **.vscode** folder in your project directory's root like this -
+    <Files>
+        <Folder name=".vscode" defaultOpen>
+            <File name="settings.json" />
+        </Folder>
+        <Folder name="src">
+            <File name="app" />
+            <File name="libs" />
+            <File name="utils" />
+        </Folder>
+        <File name="package.json" />
+    </Files>
+    - Paste this code in the file and save it
+        ```json
+        {
+            "mcp": {
+                "inputs": [],
+                "servers": {
+                    "flux": {
+                        "command": "node",
+                        "args": ["/path/to/your/local/index.js"],
+                        "type": "stdio"
+                    }
+                }
+            }
+        }
+        ```
+    - If you did everything correctly you will be able to see the flux MCP loaded with all the tools, and its ready to be used in VSCode!
+        ![Flux MCP loaded in VSCode](/vsc-mcp-added.png)
+
+### Remote Setup
+For users who want to use Flux without installing anything locally
+    - Open VSCode and create a **settings.json** file in the **.vscode** folder in your project directory's root like this -
+    <Files>
+        <Folder name=".vscode" defaultOpen>
+            <File name="settings.json" />
+        </Folder>
+        <Folder name="src">
+            <File name="app" />
+            <File name="libs" />
+            <File name="utils" />
+        </Folder>
+        <File name="package.json" />
+    </Files>
+    - Paste this code in the file 
+        ```json
+        {
+            "mcp": {
+                "inputs": [],
+                "servers": {
+                    "flux": {
+                        "url": "https://flux-2esw.onrender.com/sse",
+                        "type": "sse"
+                    }
+                }
+            }
+        }
+        ```
+    - if you did everything correctly you will be able to see the flux MCP loaded with all the tools, and its ready to be used in VSCode!
+        ![Flux MCP loaded in VSCode](/vsc-mcp-added.png)

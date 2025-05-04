@@ -9,6 +9,9 @@ const config = {
     ignoreDuringBuilds: true,
   },
   output: "export",
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default withMDX(config);

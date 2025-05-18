@@ -10,10 +10,13 @@ import { File, Folder, Files } from 'fumadocs-ui/components/files';
   [here](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 </Callout>
 
+<Callout title="Please note">
+  Local setup is more reliable right now and we recommend using it. Also, try reloading Cursor or refreshing the MCP server if you get any errors.
+</Callout>
+
 ### Local Setup
 For users who want everything to be present locally, no remote servers involved
     - Make sure you have latest stable version of NODE.js installed - [Node.js download](https://nodejs.org/en/download/)
-    - Copy the content of the file [local/index.js](https://github.com/asrvd/flux/blob/main/src/local/index.js) to your local machine in any folder and copy the absolute path
     - Open VSCode and create a **settings.json** file in the **.vscode** folder in your project directory's root like this -
     <Files>
         <Folder name=".vscode" defaultOpen>
@@ -33,8 +36,8 @@ For users who want everything to be present locally, no remote servers involved
                 "inputs": [],
                 "servers": {
                     "flux": {
-                        "command": "node",
-                        "args": ["/path/to/your/local/index.js"],
+                        "command": "npx",
+                        "args": ["-y", "flux-ao@latest"],
                         "type": "stdio"
                     }
                 }

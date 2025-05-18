@@ -2,16 +2,19 @@
 title: Cursor Setup
 description: Installing and setting up Flux in Cursor
 ---
+<Callout title="Please note">
+  Local setup is more reliable right now and we recommend using it. Also, try reloading Cursor or refreshing the MCP server if you get any errors.
+</Callout>
 ### Local Setup
 For users who want everything to be present locally, no remote servers involved
     - Make sure you have latest stable version of NODE.js installed - [Node.js download](https://nodejs.org/en/download/)
-    - Copy the content of the file [local/index.js](https://github.com/asrvd/flux/blob/main/src/local/index.js) to your local machine in any folder and copy the absolute path
     - Open Cursor and go to **Settings** > **Cursor Settings** > **MCP** > **Add new MCP tool**
     - Paste this code in the file 
         ```json
         "mcpServers": {
             "flux": {
-                "command": "node /path/to/your/local/index.js",
+                "command": "npx",
+                "args": ["-y", "flux-ao@latest"]
             }
         }
         ```
